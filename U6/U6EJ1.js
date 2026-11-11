@@ -38,6 +38,13 @@ class Planet {
 }
 
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
+const marte    = new Planet("Mars", 227392000, false, 6787);
+const jupiter  = new Planet("Jupiter", 777920000, true, 142984);
+const saturno  = new Planet("Saturn", 1427184000, true, 120536);
+
+const myJSON = JSON.stringify([marte, jupiter, saturno]);
+const planetas= JSON.parse(myJSON);
+const planetsBTE= Planet.biggerThanEarth(planetas);
 
 
 

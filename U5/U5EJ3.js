@@ -38,7 +38,49 @@
 	Finalment, crea almenys 3 objectes de la classe Triangle i fes 3 trucades a aquests nous mètodes.
 */
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
+class Triangle {
+  constructor (base, height, rightTriangle){
+    this.base=base;
+    this.height=height;
+    this.rightTriangle=rightTriangle;
+  }
+  get areaTriangle(){
+    return this.base*this.height/2
+  }
+  get rightHypotenuse(){
+if (this.rightTriangle===true){
+  return Math.sqrt((this.base**2)+(this.height**2))
+}
+  }
+  get rightPerimeter(){
+if (this.rightTriangle===true){
+  return this.base+this.height+this.rightHypotenuse
+  }
+}
+static rightTriangleUnion(triangle1,triangle2){
+	if (triangle1.rightTriangle && triangle2.rightTriangle===true){
+  return triangle1.rightPerimeter+triangle2.rightPerimeter+Math.abs(triangle1.height-triangle2.height);
+}
+}
+static areaPoligon(triangles) {
+    let sumaAreas = 0;
+    for (let i = 0; i < triangles.length; i++) {
+        sumaAreas += triangles[i].areaTriangle;
+    }
+    return sumaAreas;
+}
+isEquilateral(){
+	return this.height===this.base*Math.sqrt(3)/2;
+}
+}
+const triangulo1 = new Triangle(3, 4, true);
+const triangulo2 = new Triangle(6, 8, true);
+const equilatero = new Triangle(10, 10 * Math.sqrt(3) / 2, false);
 
+console.log(Triangle.rightTriangleUnion(triangulo1, triangulo2));     
+console.log(Triangle.areaPoligon([triangulo1, triangulo2, equilatero])); 
+console.log(equilatero.isEquilateral());                             
+console.log(triangulo1.isEquilateral());                               
 
 
 

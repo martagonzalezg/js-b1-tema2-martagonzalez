@@ -22,7 +22,9 @@
 const myJSON = '[{"base":10,"height":5,"rightTriangle":true},{"base":10,"height":8.660254037844386,"rightTriangle":false},{"base":15,"height":7,"rightTriangle":true}]';
 
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
-
+const myTriangles= JSON.parse(myJSON);
+const equilateralsTriangles= myTriangles.filter(triangle=>triangle.height===triangle.base*Math.sqrt(3)/2);
+const newTrianglesJSON= JSON.stringify(equilateralsTriangles);
 
 
 
